@@ -1,0 +1,360 @@
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        :root {
+            --primary-color: #333; /* Preto elegante */
+            --secondary-color: #A08860; /* Dourado/Bege para destaque */
+            --bg-light: #F8F8F8;
+            --text-light: #666;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: #fff;
+            color: var(--primary-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ---------------------------------- */
+        /* 1. Header (Cabeçalho) */
+        /* ---------------------------------- */
+        .main-header {
+            background-color: #fff;
+            border-bottom: 1px solid var(--bg-light);
+            padding: 15px 0;
+            position: sticky; /* Adicionado para fixar o cabeçalho no topo */
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            font-weight: bold;
+            text-decoration: none; /* Garante que o logo não tem sublinhado */
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-size: 0.95em;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-icons button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin-left: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Menu Mobile (Escondido por padrão no Desktop) */
+        .menu-button {
+            display: none; 
+        }
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background-color: var(--primary-color);
+            padding: 10px 0;
+            position: absolute; /* Para ocupar toda a largura e ficar abaixo do header */
+            width: 100%;
+            left: 0;
+            top: 100%; /* Inicia logo abaixo do cabeçalho */
+        }
+        .mobile-menu a {
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-bottom: 1px solid #444;
+            transition: background-color 0.3s;
+        }
+        .mobile-menu a:hover {
+            background-color: #444;
+        }
+
+
+        /* ---------------------------------- */
+        /* 2. Hero Banner */
+        /* ---------------------------------- */
+        .hero-banner {
+            /* URL mais descritiva para o Hero Banner */
+            background: url('https://picsum.photos/1500/500?random=1') center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4); /* Escurece a imagem para o texto sobressair */
+        }
+
+        .hero-banner h2 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-banner p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 10px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #8D7750;
+        }
+
+        /* ---------------------------------- */
+        /* 3. Vitrine de Produtos */
+        /* ---------------------------------- */
+        .product-showcase {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .product-showcase h2 {
+            margin-bottom: 40px;
+            font-size: 2em;
+        }
+
+        .product-grid {
+            display: grid;
+            gap: 20px;
+            /* Padrão para mobile: 1 coluna */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .product-card {
+            border: 1px solid var(--bg-light);
+            padding: 15px;
+            text-align: left;
+            transition: box-shadow 0.3s;
+            overflow: hidden; /* Importante para o efeito de zoom */
+        }
+
+        .product-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra mais destacada */
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            transition: transform 0.4s ease; /* Efeito de zoom */
+        }
+        
+        .product-card:hover img {
+            transform: scale(1.05); /* Zoom ao passar o mouse */
+        }
+
+        .product-card h3 {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .product-card p.category {
+            color: var(--text-light);
+            font-size: 0.85em;
+            margin-bottom: 5px;
+        }
+
+        .product-card p.price {
+            font-size: 1.2em;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .load-more-btn {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 10px 40px;
+            cursor: pointer;
+            margin-top: 40px;
+            font-size: 1em;
+            border-radius: 5px;
+            transition: opacity 0.3s;
+        }
+
+        .load-more-btn:hover {
+            opacity: 0.9;
+        }
+
+
+        /* ---------------------------------- */
+        /* 4. Footer (Rodapé) */
+        /* ---------------------------------- */
+        .main-footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 40px 0 10px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-section {
+            flex: 1 1 200px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h3 {
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+            transition: color 0.3s;
+        }
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-links a {
+            font-size: 1.5em;
+            margin-right: 10px;
+            color: #fff;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8em;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+
+        /* ---------------------------------- */
+        /* 5. Media Queries (Responsividade) */
+        /* ---------------------------------- */
+
+        /* Tablet e Desktop Médio */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Esconde links no menu principal */
+            }
+
+            .menu-button {
+                display: block; /* Mostra o botão de hambúrguer */
+            }
+
+            .hero-banner h2 {
+                font-size: 2.2em;
+            }
+
+            /* Vitrine com 2 colunas no tablet */
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                justify-content: flex-start;
+            }
+
+            .footer-section {
+                flex: 1 1 45%; /* Duas seções por linha */
+            }
+        }
+
+        /* Mobile (Celular) */
+        @media (max-width: 480px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+            
+            .logo {
+                flex-basis: 100%; /* Logo ocupa a linha toda */
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            .nav-icons {
+                margin-left: auto;
+            }
+
+            .hero-banner {
+                padding: 50px 10px;
+                height: 300px;
+            }
+
+            .hero-banner h2 {
+                font-size: 1.8em;
+            }
+            
+            /* Vitrine com 1 coluna no celular */
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-section {
+                flex: 1 1 100%; /* Uma seção por linha */
+            }
+        }
+
+        /* Classe JS para exibir o menu mobile */
+        .mobile-menu.active {
+            display: flex;
+        }
